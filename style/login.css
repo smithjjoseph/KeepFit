@@ -1,0 +1,62 @@
+@font-face {
+  font-family: Lato-Thin;
+  src: url(fonts/Lato-Thin.ttf);
+}
+
+body {
+  background-color: rgb(96, 174, 66);
+  margin: 1% 0px 0px 0px;
+}
+
+h1 {
+  font-family: "Lato-Thin";
+  color: #FFF;
+  font-size: 350%;
+}
+
+input[type=text] {
+  font-family: Lato-Thin;
+  font-size: 120%;
+  color: #FFF;
+  background-color: inherit;
+  border: none;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
+  width: 80%;
+  padding: 2% 5%;
+}
+
+input[type=submit] {
+  font-family: Lato-Thin;
+  font-size: 200%;
+  color: rgb(96, 174, 66);
+  background-color: #FFF;
+  border: none;
+  border-radius: 10px;
+  padding: 2% 20%;
+}
+
+input:focus {
+    outline:none;
+}
+
+.main_container {
+  text-align: center;
+  border-radius: 1em;
+  padding: 1em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.main_container img {
+  width: 60%;
+}
+
+.white-bar {
+  background-color: #FFF;
+  margin: 0px;
+  padding: 0px;
+}

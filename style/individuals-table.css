@@ -1,0 +1,35 @@
+@font-face {
+    font-family: Lato-Thin;
+    src: url(fonts/Lato-Thin.ttf);
+}
+
+.bold-green-font {
+    font-weight: bold;
+    color: green;
+}
+
+.bold-font {
+    font-weight: bold;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.header-row {
+    font-family: "Lato-Thin";
+    color: #FFFFFF;
+    background-color: rgb(96, 174, 66);
+    font-size: 20px;
+}
+
+.table-row {
+    font-family: "Lato-Thin";
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+}
+
+.table-cell {
+    border: 10px solid gray;
+}
