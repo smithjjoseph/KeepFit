@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KeepFit</title>
+    <link href="style/default.css" rel="stylesheet" type="text/css" />
+    <script src="scripts/keepfit.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+    <img class="logo" src="images/KeepFitLogo.png">
+    <div class="topnav-right">
+        <a style="text-align: center;">
+            <a href="action.html"><img src="images/home.png" alt="Home" class="center">Home</a>
+            <a class="active" href="selection.html"><img src="images/account.png" alt="Account" class="center">Account</a>
+            <a href="index.html" onclick="logout()"><img src="images/exit.png" alt="Log-Out" class="center">Logout</a>
+        </a>
+    </div>
+</div>
+
+<div class="main_container">
+    <h1>and now <b>state</b> your privacy...</h1>
+    <a href="action.html" onclick="setPrivacy('classroom')" class="button">Classroom</a>
+    <a href="action.html" onclick="setPrivacy('private')" class="button">Private</a>
+</div>
+
+<a href="selection.html" class="button" style="font-size: 100%; position: fixed; bottom: 20%; left: 10%;">Back</a>
+
+</body>
+</html>

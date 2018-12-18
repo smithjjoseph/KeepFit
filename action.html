@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KeepFit</title>
+    <link href="style/default.css" rel="stylesheet" type="text/css"/>
+    <script src="scripts/keepfit.js"></script>
+    <script src="scripts/cookies.js"></script>
+    <script src="scripts/utils.js"></script>
+</head>
+<body>
+<div class="navbar">
+    <img class="logo" src="images/KeepFitLogo.png">
+    <div class="topnav-right">
+        <a style="text-align: center;">
+            <a class="active" href="action.html"><img src="images/home.png" alt="Home" class="center">Home</a>
+            <a href="selection.html"><img src="images/account.png" alt="Account" class="center">Account</a>
+            <a href="index.html" onclick="logout()"><img src="images/exit.png" alt="Log-Out" class="center">Logout</a>
+        </a>
+    </div>
+</div>
+<h2>
+    <script>
+        document.write("<u>" + capitalize(getCookie("role")) + "</u> > <u>" + capitalize(getCookie("privacy")) + "</u>")
+    </script>
+</h2>
+
+<div class="main_container">
+    <h1>Please <b>choose</b> the action you would like to take...</h1>
+    <a href="class-data.html" class="button">View class-level data</a><br><br>
+    <a href="class-data-individual.html" class="button">View individual data</a><br><br>
+    <a onclick = "setObjective()" class="button">Set objectives</a>
+</div>
+
+<a href="privacy.html" class="button" style="font-size: 100%; position: fixed; bottom: 20%; left: 10%;">Back</a>
+
+</body>
+</html>

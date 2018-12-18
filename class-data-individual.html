@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KeepFit</title>
+    <link href="style/default.css" rel="stylesheet" type="text/css"/>
+    <link href="style/individuals-table.css" rel="stylesheet" type="text/css"/>
+    <script src="scripts/keepfit.js"></script>
+    <script src="scripts/cookies.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['table']});
+        google.charts.setOnLoadCallback(drawTable);
+
+        function drawTable() {
+
+            var cssClassNames = {
+                'headerRow': 'header-row',
+                'tableRow': 'table-row',
+                'oddTableRow': 'table-row',
+                'selectedTableRow': '-',
+                'hoverTableRow': '',
+                'headerCell': '-',
+                'tableCell': 'table-cell',
+                'rowNumberCell': '-'};
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Student');
+            data.addColumn('number', 'Exercise Time (mins)');
+            data.addColumn('number', 'Calories Burnt');
+            data.addColumn('boolean', 'Full Time Employee');
+
+            var array = [];
+            var names = ["Kevin", "Joseph", "Ines" , "Sacha", "Ruslan", "Jamie", "Vikram", "Jack", "Katelin", "Jacob", "Finley"];
+            for (var i = 0; i < names.length; i++) {
+                var randomInt = Math.floor(Math.random() * 300) + 1;
+                var randomBoolean = Math.random() >= 0.5;
+                var calories = Math.floor((randomInt * (63 * 3 * 3.5)) / 200);
+                if(getCookie("privacy") === "classroom") {
+                    array.push([names[i], randomInt, calories, randomBoolean])
+                } else {
+                    array.push([(i + 1).toString(), randomInt, calories, randomBoolean]);
+                }
+            }
+
+            data.addRows(array);
+
+            var table = new google.visualization.Table(document.getElementById('table_div'));
+
+            table.draw(data, {showRowNumber: false, allowHtml: true, cssClassNames: cssClassNames, width: '150%', height: '150%'});
+        }
+    </script>
+</head>
+<body>
+<div class="navbar">
+    <img class="logo" src="images/KeepFitLogo.png">
+    <div class="topnav-right">
+        <a style="text-align: center;">
+            <a class="active" href="action.html"><img src="images/home.png" alt="Home" class="center">Home</a>
+            <a href="selection.html"><img src="images/account.png" alt="Account" class="center">Account</a>
+            <a href="index.html" onclick="logout()"><img src="images/exit.png" alt="Log-Out" class="center">Logout</a>
+        </a>
+    </div>
+</div>
+<h2 style="display:inline;">
+    <script>
+        document.write("<u>" + capitalize(getCookie("role")) + "</u> > <u>" + capitalize(getCookie("privacy")) + "</u>")
+    </script>
+</h2>
+
+
+<h1 style="display:inline;"><div style="text-align: center; transform: translate(0%, 100%);">Class Data - Individual</div></h1>
+
+<div id="table_div" style="display: inline; width: 1300px; height: 400px; position: fixed; bottom: 13%; left: 3%; transform: translate(20%, -40%);"></div>
+<a href="class-data.html" class="button" style="font-size: 100%; position: fixed; bottom: 5%; left: 5%; padding: 5px 50px; transform: translate(170%, -600%);">Back</a>
+
+</body>
+</html>

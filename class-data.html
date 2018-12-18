@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KeepFit</title>
+    <link href="style/default.css" rel="stylesheet" type="text/css"/>
+    <script src="scripts/keepfit.js"></script>
+    <script src="scripts/cookies.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', {'packages':['corechart']});
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Callback that creates and populates a data table,
+        // instantiates the pie chart, passes in the data and
+        // draws it.
+        function drawChart() {
+
+            // Create the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Target met');
+            data.addColumn('number', 'Amount of People');
+            data.addRows([
+                ['Yes', 6],
+                ['No', 3]
+            ]);
+
+            // Set chart options
+            var options = {'title':'Did we meet our targets?',
+                'width':600,
+                'colors': ['#60ae42', '#F26C4F'],
+                'height':450};
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+    <script type="text/javascript">
+
+        google.charts.load("current", {packages:['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+
+        function drawChart() {
+            var array = [["Student", "Exercise Time", { role: "style" } ]];
+            var names = ["Kevin", "Joseph", "Ines", "Sacha", "Ruslan", "Jamie", "Vikram", "Jack", "Caitlin", "Jacob", "Finlay"];
+            for (var i = 0; i < names.length; i++) {
+                var randomInt = Math.floor(Math.random() * 300) + 1;
+                if(getCookie("privacy") === "classroom") {
+                    array.push([names[i], randomInt, "#60ae42"])
+                } else {
+                    array.push([(i + 1).toString(), randomInt, "#60ae42"]);
+                }
+            }
+            console.log(array[0] + "" + array[1]);
+            var data = google.visualization.arrayToDataTable(array);
+
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1,
+                { calc: "stringify",
+                    sourceColumn: 1,
+                    type: "string",
+                    role: "annotation" },
+                2]);
+
+            var options = {
+                title: "Students Exercise Time",
+                width: 900,
+                height: 450,
+                bar: {groupWidth: "95%"},
+                legend: { position: "none" },
+                animation: {
+                    duration: 1500,
+                    startup: true //This is the new option
+                }
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+            chart.draw(view, options);
+        }
+    </script>
+</head>
+<body>
+<div class="navbar">
+    <img class="logo" src="images/KeepFitLogo.png">
+    <div class="topnav-right">
+        <a style="text-align: center;">
+            <a class="active" href="action.html"><img src="images/home.png" alt="Home" class="center">Home</a>
+            <a href="selection.html"><img src="images/account.png" alt="Account" class="center">Account</a>
+            <a href="index.html" onclick="logout()"><img src="images/exit.png" alt="Log-Out" class="center">Logout</a>
+        </a>
+    </div>
+</div>
+<h2 style="display:inline;">
+    <script>
+        document.write("<u>" + capitalize(getCookie("role")) + "</u> > <u>" + capitalize(getCookie("privacy")) + "</u>")
+    </script>
+</h2>
+
+
+<h1 style="display:inline;"><div style="text-align: center; transform: translate(0%, 100%);">Class Data</div></h1>
+
+<div id="columnchart_values" style="display: inline; width: 1100px; height: 300px; position: fixed; bottom: 30%; left: -5%; transform: translate(20%, -25%);"></div>
+<div id="chart_div" style="display: inline; width: 1100px; height: 300px; position: fixed; bottom: 20%; left: 65%; transform: translate(-10%, -50%);"></div>
+<a href="action.html" class="button" style="font-size: 100%; position: fixed; bottom: 5%; left: 5%; padding: 5px 50px; transform: translate(100%, -300%);">Back</a>
+<a href="class-data-individual.html" class="button" style="font-size: 100%; position: fixed; bottom: 5%; left: 20%; padding: 5px 20px; transform: translate(0%, -300%);">See individuals</a>
+<a onclick = "setObjective()" class="button" style="font-size: 100%; position: fixed; bottom: 5%; left: 40%; padding: 5px 20px; transform: translate(-160%, -300%);">Set Objectives</a>
+
+<div class="main_container">
+    <hr class = "hr">
+</div>
+
+</body>
+</html>

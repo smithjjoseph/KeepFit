@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>Keep Fit</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="style/login.css" rel="stylesheet" type="text/css"/>
+    <script src="scripts/keepfit.js"></script>
+</head>
+<body onload="checkLoginOrRedirect();">
+<div class="white-bar"><br><br><br><br><br></div>
+<div class="main_container">
+    <img src="images/KeepFitLogo.png" alt="Keep Fit">
+    <h1>Self-service platform</h1>
+    <form method="post" action="selection.html" onsubmit="login()">
+        <!--
+        To create a cookie, this is deleted once the browser is closed; we can use this on login.
+        document.cookie = "username=John Doe"
+        ;> </-->
+        <input type="text" id="username" name="username" placeholder="enter your username here..."><br><br>
+        <input type="text" id="password" name="password" placeholder="enter your password here..."><br><br>
+        <input type="submit" value="Login">
+    </form>
+</div>
+</body>
+</html>

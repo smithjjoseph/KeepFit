@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KeepFit</title>
+    <link href="style/default.css" rel="stylesheet" type="text/css" />
+    <script src="scripts/keepfit.js"></script>
+</head>
+<body>
+<div class="navbar">
+    <img class="logo" src="images/KeepFitLogo.png">
+    <div class="topnav-right">
+        <a style="text-align: center;">
+            <a href="index.html"><img src="images/home.png" alt="Home" class="center">Home</a>
+            <a class="active" href="index.html"><img src="images/account.png" alt="Account" class="center">Account</a>
+            <a href="index.html" onclick="logout()"><img src="images/exit.png" alt="Log-Out" class="center">Logout</a>
+        </a>
+    </div>
+</div>
+
+<div class="main_container">
+    <h1>Please <b>choose</b> you role from the options below...</h1>
+    <a href="privacy.html" onclick="setRole('teacher')" class="button">Teacher</a>
+    <a href="privacy.html" onclick="setRole('instructor')" class="button">Instructor</a>
+</div>
+
+</body>
+</html>
